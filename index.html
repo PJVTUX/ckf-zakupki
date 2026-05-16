@@ -282,56 +282,56 @@ header {
     <div class="leg-r"></div>
     Treba kupiti â
   </div>
-  <div class="leg-item"><span class="urgency-badge urg-moze" style="margin:0">MOÅ½E</span></div>
+  <div class="leg-item"><span class="urgency-badge urg-moze" style="margin:0">MOŽE</span></div>
   <div class="leg-item"><span class="urgency-badge urg-uskoro" style="margin:0">USKORO</span></div>
   <div class="leg-item"><span class="urgency-badge urg-hitno" style="margin:0">HITNO</span></div>
 </div>
 
 <div id="container"></div>
 <div class="empty" id="empty" style="display:none">
-  <div class="emoji">ð</div>Nije pronaÄeno
+  <div class="emoji">ð</div>Nije pronađeno
 </div>
 
 <div class="fab-wrap">
   <button class="fab" onclick="fabClick()">
-    <span id="fab-ico">ð</span><span id="fab-txt">OznaÄi Å¡ta treba kupiti â</span>
+    <span id="fab-ico">ð</span><span id="fab-txt">Označi šta treba kupiti â</span>
   </button>
 </div>
 
 <!-- Modals -->
 <div class="overlay" id="modal-buy" onclick="bgClose(event,'modal-buy')">
   <div class="sheet">
-    <h3>ObriÅ¡i kupljeno?</h3>
-    <p>Sve leve oznake â (kupljeno) biÄe obrisane. Lista ostaje.</p>
+    <h3>Obriši kupljeno?</h3>
+    <p>Sve leve oznake â (kupljeno) biće obrisane. Lista ostaje.</p>
     <div class="modal-btns">
-      <button class="mbtn cancel" onclick="hideModal('modal-buy')">OtkaÅ¾i</button>
-      <button class="mbtn danger" onclick="resetBought()">ObriÅ¡i</button>
+      <button class="mbtn cancel" onclick="hideModal('modal-buy')">Otkaži</button>
+      <button class="mbtn danger" onclick="resetBought()">Obriši</button>
     </div>
   </div>
 </div>
 <div class="overlay" id="modal-list" onclick="bgClose(event,'modal-list')">
   <div class="sheet">
-    <h3>ObriÅ¡i listu?</h3>
-    <p>Sve desne oznake (treba kupiti) biÄe obrisane.</p>
+    <h3>Obriši listu?</h3>
+    <p>Sve desne oznake (treba kupiti) biće obrisane.</p>
     <div class="modal-btns">
-      <button class="mbtn cancel" onclick="hideModal('modal-list')">OtkaÅ¾i</button>
-      <button class="mbtn neutral" onclick="resetList()">ObriÅ¡i</button>
+      <button class="mbtn cancel" onclick="hideModal('modal-list')">Otkaži</button>
+      <button class="mbtn neutral" onclick="resetList()">Obriši</button>
     </div>
   </div>
 </div>
 <div class="overlay" id="modal-cfg" onclick="bgClose(event,'modal-cfg')">
   <div class="sheet">
     <h3>â Upravljanje</h3>
-    <p style="margin-bottom:12px;font-size:13px;color:var(--muted)">Akcije s listom (zakupÄik):</p>
+    <p style="margin-bottom:12px;font-size:13px;color:var(--muted)">Akcije s listom (zakupčik):</p>
     <div class="modal-btns" style="margin-bottom:18px">
-      <button class="mbtn neutral" onclick="hideModal('modal-cfg');showModal('modal-buy')">âº ObriÅ¡i kupljeno</button>
-      <button class="mbtn danger"  onclick="hideModal('modal-cfg');showModal('modal-list')">â ObriÅ¡i listu</button>
+      <button class="mbtn neutral" onclick="hideModal('modal-cfg');showModal('modal-buy')">âº Obriši kupljeno</button>
+      <button class="mbtn danger"  onclick="hideModal('modal-cfg');showModal('modal-list')">â Obriši listu</button>
     </div>
     <p style="font-size:13px;color:var(--muted);margin-bottom:6px">Apps Script URL (server):</p>
     <input class="add-input" type="url" id="cfg-url" style="width:100%;margin-bottom:14px;font-size:12px" placeholder="https://script.google.com/...">
     <div class="modal-btns">
       <button class="mbtn cancel" onclick="hideModal('modal-cfg')">Zatvori</button>
-      <button class="mbtn danger" onclick="saveCfg()">SaÄuvaj URL</button>
+      <button class="mbtn danger" onclick="saveCfg()">Sačuvaj URL</button>
     </div>
   </div>
 </div>
@@ -343,33 +343,33 @@ header {
     <p id="urg-item-name" style="font-weight:700;color:var(--text);font-size:16px;margin-bottom:16px;word-break:break-word"></p>
     <div class="urg-btns">
       <button class="urg-btn btn-hitno"  onclick="confirmUrgency('HITNO')">ð´ HITNO<span class="urg-sub">odmah!</span></button>
-      <button class="urg-btn btn-uskoro" onclick="confirmUrgency('USKORO')">ð  USKORO<span class="urg-sub">sledeÄi dan</span></button>
-      <button class="urg-btn btn-moze"   onclick="confirmUrgency('MOÅ½E')">ð¢ MOÅ½E<span class="urg-sub">kad stigne</span></button>
+      <button class="urg-btn btn-uskoro" onclick="confirmUrgency('USKORO')">ð  USKORO<span class="urg-sub">sledeći dan</span></button>
+      <button class="urg-btn btn-moze"   onclick="confirmUrgency('MOŽE')">ð¢ MOŽE<span class="urg-sub">kad stigne</span></button>
     </div>
-    <button class="mbtn cancel" style="width:100%" onclick="hideModal('modal-urg')">OtkaÅ¾i</button>
+    <button class="mbtn cancel" style="width:100%" onclick="hideModal('modal-urg')">Otkaži</button>
   </div>
 </div>
 
 <script>
 // âââ CATEGORIES (updated from CKF.xlsx / NABAVKA sheet) ââââââââââââââââââââââ
 const CATS = [
-  { id:"zacini", icon:"ð§", name:"ZaÄini i sosovi",
-    items:["BOSILJAK","ORIGANO","VEGETA","SO","SECER","BIBER CRNI","BIBER BELI","TACOS ZACINE","KULINAT","BRATHUHN (GRUZINSKA SO)","KVASAC","ULJE MASLINOVO","ULJE SUNCOKRETOVO","ULJE PALMINO","SOJA SOS","BALZAMICO CIRCE","LJUTI KETCAP (EROÅ )","LJUTI KETCAP (EROÅ  GARLIC)","MAJONEZ","PESTO","BBQ SOS","SWEET CILI SOS"] },
-  { id:"mlecni", icon:"ð¥", name:"MleÄni proizvodi",
+  { id:"zacini", icon:"ð§", name:"Začini i sosovi",
+    items:["BOSILJAK","ORIGANO","VEGETA","SO","SECER","BIBER CRNI","BIBER BELI","TACOS ZACINE","KULINAT","BRATHUHN (GRUZINSKA SO)","KVASAC","ULJE MASLINOVO","ULJE SUNCOKRETOVO","ULJE PALMINO","SOJA SOS","BALZAMICO CIRCE","LJUTI KETCAP (EROŠ)","LJUTI KETCAP (EROŠ GARLIC)","MAJONEZ","PESTO","BBQ SOS","SWEET CILI SOS"] },
+  { id:"mlecni", icon:"ð¥", name:"Mlečni proizvodi",
     items:["MLEKO","PAVLAKA","PAVLAKA ZA KUVANJE","SIR TRAPIST","SIR GOLDI","SIR DIMLJENI","SIR PARMEZAN","SIR FETA","SIR MAMAS (BILJNI)","SIR MOCARELA"] },
   { id:"meso", icon:"ð¥©", name:"Meso i mesni proizvodi",
     items:["SUNKA","KULEN","KULEN JUNECI","PECENICA","SLANINA","PRSUT","PILETINA BELO MESO","PILETINA KRILCA","PILETINA BATACICI","JAJA","DINO NUGGETS","NUGGETS","POMFRIT","ONION RINGS"] },
-  { id:"povrce", icon:"ð¥¦", name:"PovrÄe i zelje",
+  { id:"povrce", icon:"ð¥¦", name:"Povrće i zelje",
     items:["FEFERONE","GLJIVE","PAPRIKA CRVENA","PAPRIKA LJUTA","CRVENI LUK","BELI LUK","SALATA","RUKOLA","KISELI KRASTAVCI","CERI PARADAJZ","PARADAJZ","KUKURUZ","TICVICE"] },
   { id:"konzerve", icon:"ð¥«", name:"Konzervirani proizvodi",
     items:["TUNJEVINA KONZERVA","PELAT KONZERVA","AJVAR","MASLINE ZELENE","MASLINE CRNE"] },
   { id:"suve", icon:"ð¾", name:"Suve namirnice",
     items:["BRASNO OBICNO","BRASNO T400 OSTRO","BRASNO KUKURUZNO","SODA BIKARBONA","MED","NUTELLA","EUROKREM","KAJSIJA","VANILA PUDING","MAK KREM","VISNJA","ORAH","KOKOS","LESNIK","SUSAM","PLAZMA","KIKIRIKI","PISTACI TOPING","VANILA SECER"] },
-  { id:"pakovanje", icon:"ð¦", name:"Pakovanje i ambalaÅ¾a",
+  { id:"pakovanje", icon:"ð¦", name:"Pakovanje i ambalaža",
     items:["ALU FOLIJA","STRECH FOLIJA","KESA ZA SENDVICE","KESE NEJLONSKE M","KESE NEJLONSKE V","VILJUSKE","SALVETE","KUTIJE ZA PALACINKE M","KUTIJE ZA PALACINKE V","KUTIJE 24","KUTIJE 32","KUTIJE 42","KUTIJE 50","KUTIJE MEGA-BOX","KUTIJE V-F-BOX","KUTIJE F-BOX","KUTIJE KIDS-BOX","DISTANCERI","BOCICE 160ML","BOCICE 100ML","RUKAVICE L (GROZ)","RUKAVICE M (MITEL)","RUKAVICE S (KLEIN)","TRAKA ZA RACUNE 80MM","TRAKA ZA RACUNE 57MM","PAPIR A4","TONER ZA STAMPAC"] },
   { id:"hemija", icon:"ð§¹", name:"Hemija",
     items:["ALKOHOL","ZA STAKLA","ZA PODOVE","ODMASCIVAC","SAPUN ZA KUKE","SAPUN ZA SUDOVE","SUNDER","ZICA","TRULEX","UBRUS","DZAKOVE ZA CMECE"] },
-  { id:"pice", icon:"ð¥¤", name:"PiÄe",
+  { id:"pice", icon:"ð¥¤", name:"Piće",
     items:["PEPSI 0.33","PEPSI MAX 0.33","PEPSI 1.5","MIRINDA","SEVEN UP","TUBE","AQUA VIVA","KNJAZ MILOS","ZAJECARSKO"] },
 ];
 
@@ -454,10 +454,10 @@ async function pushToServer() {
       body: JSON.stringify({ state: ST })
     });
     const data = await res.json();
-    if (data.ok) setSyncStatus("ok", "saÄuvano");
+    if (data.ok) setSyncStatus("ok", "sačuvano");
     else throw new Error("Server error");
   } catch {
-    setSyncStatus("err", "greÅ¡ka Äuvanja");
+    setSyncStatus("err", "greška čuvanja");
   }
 }
 
@@ -535,7 +535,7 @@ function itemRow(catId, item) {
   const neededVal = ST[gk(catId, item, "needed")];
   const needed    = !!neededVal;
   const urgency   = needed ? getEscalatedUrgency(neededVal) : null;
-  const URG_CLS   = { HITNO:"hitno", USKORO:"uskoro", "MOÅ½E":"moze" };
+  const URG_CLS   = { HITNO:"hitno", USKORO:"uskoro", "MOŽE":"moze" };
   const urgKey    = urgency ? (URG_CLS[urgency] || "hitno") : null;
   const cls = (bought ? "bought " : "") + (needed ? "needed" + (urgKey ? " urg-"+urgKey : "") : "");
   const s   = item.replace(/'/g, "\\'");
@@ -569,8 +569,8 @@ function updateProgress(bought, needed) {
   document.getElementById("pf").style.width = pct + "%";
   const ico = document.getElementById("fab-ico");
   const txt = document.getElementById("fab-txt");
-  if (!needed)             { ico.textContent = "ð"; txt.textContent = "OznaÄi Å¡ta treba kupiti â"; }
-  else if (bought===needed){ ico.textContent = "â"; txt.textContent = "Sve kupljeno! ObriÅ¡i oznake?"; }
+  if (!needed)             { ico.textContent = "ð"; txt.textContent = "Označi šta treba kupiti â"; }
+  else if (bought===needed){ ico.textContent = "â"; txt.textContent = "Sve kupljeno! Obriši oznake?"; }
   else                     { ico.textContent = "ð"; txt.textContent = `Kupljeno ${bought} od ${needed}`; }
 }
 
@@ -604,7 +604,7 @@ function getEscalatedUrgency(val) {
   const dateStr = parts[1];
   if (!dateStr) return level;
   const days = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
-  if (level === "MOÅ½E")  { if (days >= 2) return "HITNO"; if (days >= 1) return "USKORO"; }
+  if (level === "MOŽE")  { if (days >= 2) return "HITNO"; if (days >= 1) return "USKORO"; }
   if (level === "USKORO") { if (days >= 1) return "HITNO"; }
   return level;
 }
